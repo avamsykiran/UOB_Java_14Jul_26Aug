@@ -180,6 +180,18 @@ Java SE
 
             are hard-coded values.
 
+            String                  "this is a string"
+            Character               '$','A','7'
+            Integer                 
+                    Decimal         1,2,3,4,5,6,7,8,9,0
+                                    int population=25_15_00_000;
+                    HexaDecimal     0x12
+                    Octal           01
+
+            Floating Point          3.14
+            Boolean                 true    false
+            Void Leteral            null
+
             class Dummny{
                 public static void main(String a[]){
                     double r = 2.5;
@@ -194,13 +206,64 @@ Java SE
             comments        none
             Literals        2.5, 3.14, 2
 
-            
-
-
-
-
     Language Fundamentals
+        Primetive Data Types
+                        byte
+                        short
+                        int
+                        long
+
+                        double
+                        float
+
+                        char
+                        boolean
+                        void
+
+        User Defiend Data Types
+                        class
+                        enum
+                        interface
+                        annotation
+                
         Control Structures
+
+                        Sequential Flow        
+                        Selective Flow
+                        Iterative Flow
+
+                        control structures are sued to convert sequential flow into
+                        selective flow or iterative flow.
+
+
+                        Branching / Decision Making Control Structures (Offer Selective Flow)
+
+                            if
+                                simple if
+                                if..else
+                                if..ladder
+
+                            switch
+
+                        Loops (Iterative Flow)
+
+                            for(initialization;cond;inc/dec){
+                                ........................
+                            } //a entry-check loop or pre-conditioned loop and definite loop
+
+                            while(cond){
+                                ...............................
+                            } //a entry-check loop or pre-conditioned loop and indefinite loop
+
+                            do {
+                                .................................
+                            }while(cond); //a exit-check loop or post-conditioned loop and indefinite loop
+
+                        Non-Condition Control Structures (Offer escape a flow)
+                            break          is used to termiante a loop before the exit condition
+                            continue       is used to skip an iteration of a loop     
+                            return         is used to abort a function execution midway.
+
         Arrays
         OOPs and Packages
         java.lang Package

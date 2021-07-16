@@ -259,12 +259,59 @@ Java SE
                                 .................................
                             }while(cond); //a exit-check loop or post-conditioned loop and indefinite loop
 
+                            for(datatype ele:array){
+                                ....do anything with the ele.....
+                            }//enhanced for loop or forEach loop
+
                         Non-Condition Control Structures (Offer escape a flow)
                             break          is used to termiante a loop before the exit condition
                             continue       is used to skip an iteration of a loop     
                             return         is used to abort a function execution midway.
 
         Arrays
+                is a homoginous linear collection of elements.
+
+                index   is the position of an ele in the array, it is zero-based in java.
+
+                datatype arraName[];
+                datatype[] arrayName;
+
+                arrNaem = new datatype[size];
+
+                String[] names = new String[10];
+                System.out.println(names[4]); //5th element
+
+                double[] readings = new double[]{1.0,2.5,4.5,6.7,8.9,9.6}; //array initialization
+
+                for(int i=0;i<readings.length;i++){
+                    System.out.println(readings[i]);
+                }
+
+                for(double reading : readings){
+                    System.out.println(reading);
+                }
+
+
+        Multi-dimenssioned Arrays
+
+                int[][] matrix1 = new int[2][3];
+
+                matrix1[0][0]=34;
+                matrix1[0][1]=56;
+                matrix1[0][2]=546;
+
+                int[][][] threeDimdArray = new int[3][4][5];
+
+        Jagged Arrays
+
+                int[][] ja1 = new int[3][];
+
+                ja1[0] = new int[5];
+                ja1[1] = new int[3];
+                ja1[2] = new int[10];
+
+                
+
         OOPs and Packages
         java.lang Package
 

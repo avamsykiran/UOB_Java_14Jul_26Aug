@@ -310,9 +310,171 @@ Java SE
                 ja1[1] = new int[3];
                 ja1[2] = new int[10];
 
-                
-
         OOPs and Packages
+
+            Class and Object
+
+                    a class is a user defiend data type.
+                    represent   an entity
+                                a model
+                                a software component like DAO/Service/Controller/.........etc
+
+                    through properties and behaviours of an entity
+                    as fields and methods.
+
+                    class Rectangle {
+                        int length;
+                        int breadth;
+
+                        int area() {
+                            return length*breadth;
+                        } 
+
+                        int perimeter() {
+                            return 2*(length+breadth);
+                        }
+                    }
+
+                    Object is an instance of a class (object is a variable of class type).
+
+                    Rectangle r = new Rectangle();    
+
+            Encapsulation
+
+                    Data Hiding - providing indirect access to the fields and methods
+                                to avoid operations that are not allowed or expected.
+
+                    Access Specifiers
+                            public    allowed to be accessed anywhere all thorugh the app.
+                            protected allowed to be accessed only within the class and its sub-classes
+                            private   allowed to be accessed only within the class 
+                            default   allowed to be accessed anywhere all thorugh the package
+
+                    class Employee {
+                        private int empId;
+
+                        public int getEmpId(){
+                            return empId;
+                        }
+
+                        public void setEmpId(int x){
+                            empId=x;
+                        }
+                    }
+
+                    Employee e = new Employee();
+                    e.setEmpId(67);
+                    System.out.println(e.getEmpId());
+
+                    class Rectangle {
+                        private int length;
+                        private int breadth;
+
+                        public void setLength(int length){
+                            this.length=length;
+                        }
+                        
+                        public void setBreadth(int breadth){
+                            this.breadth=breadth;
+                        }
+
+                        public int area() {
+                            return length*breadth;
+                        } 
+
+                        public int perimeter() {
+                            return 2*(length+breadth);
+                        }
+                    }
+
+                    Rectangle r1 = new Rectangle();
+                    Rectangle r2 = new Rectangle();
+                    Rectangle r3 = new Rectangle();
+
+                    r1.area(); //r1 is the current object of area()
+                    r2.area(); //r2 is the current object of area()
+                    r3.area(); //r3 is the current object of area()
+
+                    'this' keyword
+                    ------------------------------------
+
+                            this is a reference used inside a method to access
+                            the current object of that mehtod.
+
+
+                    'toString()' method
+                    -------------------------------------
+
+                            double pi=3.14;
+                            System.out.println(pi);
+
+                            Rectangle r1 = new Rectangle();
+                            System.out.println(r1);
+
+                    constructor
+                    --------------------------------------
+
+                    declaration     informing the system that we are going to 
+                                    need a memry bock of some naem and type
+    
+                    allocation      reserving some memory space to the givne variable name
+
+                    initialization  storing a value to the variable immidiate after allocation
+
+                    assignemnt      stroring a value to the variable.
+
+
+                    int x;          declaration
+
+                    x = 65;         allocation and assignemnt
+
+                    x = 77;         assignment
+
+                    int y=45;       declaration, allocation and initialization
+
+                    Rectangle r1;   declaration
+
+                    r1 = new Rectangle();   allocation and initialization
+
+                    How to pass values to the fields of an object while initializing?
+
+                        we can do it using the constructor.
+
+                    a constructor is special function that gets executed 
+                    immidiatly after the allaocation of an object.
+                    the constructor is identified through two rules
+                        1. the name of the constructor should exactly match with its class name
+                        2. the constructor do not return any value (even not void).
+
+                   
+
+            Polymorphisim
+
+                Multiply the below:
+
+                        (a)     10          20
+                        
+                        (b)     ax+b        mx+c
+                        
+                        (c)     {1,2,3,4}   {4,5,6,7}
+
+                        (d)     1   2       4   5   6
+                                3   4
+
+                 How many constructors can we ahve in a single class ?
+                       as many as you want , as long as each of them have
+                       a different type or count of arguments.
+
+                        constructor has no args         default constructor
+                        constructor has atleast 1 arg   paramatrized construcotr
+                        constructor has atleast 1 arg   copy constructor
+                        of the same class type   
+
+
+            Inheretence 
+            Abstraction
+
+
         java.lang Package
 
     Exceptions

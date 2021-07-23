@@ -6,13 +6,11 @@ public class Rectangle {
 	private int breadth;
 	
 	public Rectangle() {
-		this.length=5;
-		this.breadth=5;
+		this(5);
 	}
 	
 	public Rectangle(int side) {
-		this.length=side;
-		this.breadth=side;
+		this(side,side);
 	}
 	
 	public Rectangle(int length,int breadth) {
@@ -21,8 +19,7 @@ public class Rectangle {
 	}
 	
 	public Rectangle(Rectangle a) {
-		this.length=a.length;
-		this.breadth=a.breadth;
+		this(a.length,a.breadth);
 	}
 	
 	public int getLength() {

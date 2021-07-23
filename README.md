@@ -446,9 +446,10 @@ Java SE
                         1. the name of the constructor should exactly match with its class name
                         2. the constructor do not return any value (even not void).
 
-                   
-
             Polymorphisim
+
+                poly-morphic
+                multiple-existence of the same behaviour
 
                 Multiply the below:
 
@@ -461,7 +462,7 @@ Java SE
                         (d)     1   2       4   5   6
                                 3   4
 
-                 How many constructors can we ahve in a single class ?
+                 How many constructors can we have in a single class ?
                        as many as you want , as long as each of them have
                        a different type or count of arguments.
 
@@ -470,8 +471,131 @@ Java SE
                         constructor has atleast 1 arg   copy constructor
                         of the same class type   
 
+                 Function or Constructor Overloading
+                 -------------------------------------
+                    two methods are said to be overlaoded if
+                    1. they belong the same class or to a super and sub-class AND
+                    2. they have the same name but differ in 
+                        (a) no of args  (or)
+                        (b) args type    (or)
+                        (c) both no of args and arg type
+
+                    class Citizen {
+                        public Energy eat(Apple a) {
+                            wash(a);
+                            Energy e = new Energy();
+                            Piece[] pcs = cut(a);
+                            for(Piece p : pcs){
+                                e.accumulate(chewAndSwallowing(p));
+                            }
+                            return e;
+                        }
+
+                        public Energy eat(IceCream ic) {
+                            Energy e = new Energy();
+                            while(!ic.isComplete()) {
+                                e.accumulate(lick(ic));
+                            }
+                            return e;
+                        }
+                    }
+
+                 Function Overriding
+                 -------------------------------------
+                    two methods are said to be overridden if
+                    1. they belong to a super and a sub-class each AND
+                    2. they have the same signature (returnType functionName(paramList))
+
 
             Inheretence 
+
+                class Pen {
+                    nib;
+                    color;
+                    barrel;
+                    
+                    //f1
+                    write(Paper p){
+                        /* very thin and bright */
+                    }
+                }
+
+                class Marker extends Pen{
+                    //f2
+                    write(Paper p){
+                        /* very thick and blotted */
+                    }
+
+                    //f3
+                    write(WhiteBoard wb){
+
+                    }
+                }
+
+                f1 and f3           overloading
+                f1 and f2           overriding
+                f2 and f3           overloading
+
+                creating a new class from an existing class is called
+                inheretence.
+
+                The existing class 'Pen' is called super class
+                the new class 'Marker' is called sub class
+
+                Simple Inheretence
+                        Super <--- Sub
+
+                        Rectangle <--- Cuboid
+                            l,b             l,b,h
+
+                MultiLevel Inheretence
+
+                    Super <---- Sub  <----- Sub ..etc.,
+
+                    Employee  <---- Manager <---- Director <---- ManagingDirector
+
+                Hyrarchial Inheretence
+                                    |---Sub
+                    Super   <-------|
+                                    |---Sub
+
+                                    |---- Manager
+                    Employee <------|
+                                    |---- ContractEmployee
+
+                Multiple Inheretence        (is not supported in java)
+
+                    Super <------|
+                                 |----Sub
+                    Super <------|
+
+                    Camera <-----|
+                                 |----SmartPhone
+                    Telephone<---|
+
+                Hybrid Inheretence      (multielvel + hyrarchial)
+
+
+                                    |---- Manager  <---- Director <---- ManagingDirector
+                    Employee <------|
+                                    |---- ContractEmployee
+
+                Constructor Chaining
+                --------------------------------------------
+
+                    on allocating an object to a class, its constructor is automatically executed.
+
+                    on allocating an object to a sub-class, its super class constrctor followed by its construcotr are executed.
+
+
+                    MNiniCaseStudy - D2H Operator - D@HSubscribersManagement
+                    ------------------------------------------------------------------
+
+                        GeneralSubscriber       subId,name,mobile,channelPack,monthlyFee
+                            GoldenSubscriber        annualFee
+                                PlatinumSubscriber         longTermFee,term
+                            DataSubscriber          dataFee,dataLimit
+
             Abstraction
 
 

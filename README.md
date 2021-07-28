@@ -587,8 +587,73 @@ Java SE
 
                     on allocating an object to a sub-class, its super class constrctor followed by its construcotr are executed.
 
+                'super' keyword
+                ---------------------------------------------
 
-                    MNiniCaseStudy - D2H Operator - D@HSubscribersManagement
+                    super can be used to call the super class constructor from sub-class constructor.
+                    super can also be used to call a overriden method from super class in its image of the sub-class.
+
+                    class TestOne{
+                        public String toString(){
+                            return "testing one";
+                        }
+                    }
+                    class TestTwo extends TestOne{
+                        public String toString(){
+                            return super.toString() + " testtwo also";
+                        }
+                    }
+
+                'final' keyword
+                ------------------------------------------------
+
+                    final when applied on a local variable or field, then those variable will be constants.
+
+                    final when applied on a method , those methods can no be overridden.
+
+                    final when applied on a class, those classes can not be inhereted any more.
+                
+                'static' keyword
+                --------------------------------------------------
+
+                    static fields
+                            non-static fields are called instance variables
+                            static fields are called class variables
+
+                            static variables/class variables are allcoated in a special memory called class-space, 
+                            and only one copy of such variables are allocated commonly for all objects
+                            of that class, whereas, instance variable/non-static fields are allocated
+                            separtly for each object of class.
+
+                            static members if are public also
+                            can be accessed directly on the class name.
+
+                    static methods
+
+                            static emthods are also called class methods and can not access 
+                            the non-static members directly or they can not refere to the this keyword.
+
+                    static block
+
+                        class Test{
+                            static {
+                                //this block of code gets executed when
+                                // the its class gets accessed for the first time.
+
+                                //a class cna have a maximum of only one static block.
+                                //a static block executes only once for each application execution.
+                            }
+                        }
+
+                    Why java constants are marked as 'public static final'?
+                    ----------------------------------------------------------------
+
+                        final is to make it as constant.
+                        static ensure that only one copy of that cosntant is allcoated.
+                        public makes it readable anywhere, and however it is not writable due to final
+                                and hence public will do no harm.
+
+                    MiniCaseStudy - D2H Operator - D@HSubscribersManagement
                     ------------------------------------------------------------------
 
                         GeneralSubscriber       subId,name,mobile,channelPack,monthlyFee
@@ -598,6 +663,76 @@ Java SE
 
             Abstraction
 
+                means non-detail.
+
+                is hiding the implementation detaisl of a method
+                and only exposing the mehtod signature.
+
+                Windows OS:     how to copy a file from one location to another?
+                                    select source file, ctrl+c
+                                    got to target place, ctrl+v
+
+                                ---------OS-Shell---------------
+                            a read from src file and a write into the target file 
+
+                                reading from a HDD != reading from a CD != reading from an SD Card
+                                writing from a HDD != writing from a CD != writiing from an SD Card
+
+                Abstract Functions
+                -------------------------------
+
+                    an abstract function can not have implementation.
+                    it has only signature.
+
+                Abstract Class
+                -------------------------------
+
+                    is a class that can not have objects allocated.
+                    And abstract classes can accomidate abstract functions.
+
+                    Any sub-class of an abstract class is bound to provide
+                    implementations for all the abstract methods in that abstaract class
+                    failing which the sub-class also must be marked as abstract.
+
+                Interface
+                --------------------------------
+
+                    is a user defined data type that represent a role
+                    through its abstract behaviours.
+
+                    class can extedn only one class.
+                    class can implemenet multiple interfaces
+
+                    an interface can not have fields.
+
+                    uniil java 8, interface can have only constants and public abstract methods
+                    after java 8, interface can have only constants, public abstract methods 
+                                    and method with implementation(default mehtods)
+                    after java 11,interface can have only constants, public abstract methods 
+                                    and method with implementation(default mehtods) and private methods
+
+                    Animal                               Bird
+                        |                                  |
+                    ----------------                   --------------     
+                    |              |                    |           |
+                    MaleAnimal     FemaleAnimal         MaleBird    FemnaleBird
+
+
+                    Father
+                        protect()
+
+                    Mother
+                        giveBirth()
+
+                    Sibling
+                        share()
+
+                    Animal and Bird abstract classes
+                    MaleAnimal, FemalAnimal, MaleBird, FemaleBird are all classes
+                    Father,Mother and sibling are interfaces
+
+                    MaleAnimal extends Animal and implements Father,Sibling
+                    FemaleAnimal extends Animal and implements Mother,Sibling
 
         java.lang Package
 

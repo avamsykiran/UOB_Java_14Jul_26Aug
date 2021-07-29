@@ -734,7 +734,76 @@ Java SE
                     MaleAnimal extends Animal and implements Father,Sibling
                     FemaleAnimal extends Animal and implements Mother,Sibling
 
-        java.lang Package
+                Type Casting
+                ---------------------------------------------------------------------------
+
+                    Implicit Type Casting
+
+                        char --> int
+                        int ---> double
+                        or any other brodening on primitve types 
+
+                    Explicit Type Casting
+
+                        int x = (int)67.0;
+
+                        int --> char
+                        double --> int
+                        long --> int
+
+                        or any other narrowing on primitive types
+
+                    Class Casting
+
+                                    |---- Manager  <---- Director <---- ManagingDirector
+                    Employee <------|
+                                    |---- ContractEmployee
+
+
+                        Employee e1 = new Employee(); //possible
+                        Employee e2 = new Manager(); //possible
+                        Employee e3 = new ContractEmployee(); //possible
+
+                        Manager m1 = (Manager)e2; //possible
+                        Manager m1 = (Manager)e3; //not possible, raises a ClassCastException
+
+   java.lang 
+   -----------------------------------------------------------------------
+        all that belongs to java.lang package are implicitly imported,
+        we need not explictly import them.
+
+        Class  (c)                 objects of Class represetns all the classes we create.
+
+                                        Employee.class
+                                        Box.class
+
+        Object  (c)                 is a implicit super class for all java classes
+
+            String toString()
+            int hashcode()
+            boolean equals(Object)               
+            protected void finalize()           //is called by GC jsut before the obj is being deallocated.
+
+        System (c)
+        Math (c)
+        
+        Integer         Wrapper Classes 
+        Short
+        Long
+        Double
+        Float
+        Boolean         Wrapper Classes
+        ....etc
+
+        String (c)
+        StringBuffer (c)
+        StringBuilder (c)                     
+
+        Throwable (i)
+        Exception (c)
+
+        Runnable (i)
+        Thread (c)
 
     Exceptions
     Threads

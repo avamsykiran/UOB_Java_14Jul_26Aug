@@ -796,9 +796,25 @@ Java SE
         ....etc
 
         String (c)
-        StringBuffer (c)
-        StringBuilder (c)                     
 
+                    String s1 = "Hello";  //a new strign object is allcoted with value Hello
+                    String s2 = "Hello";  //because "hello" is already allcoated in SCP, that address is given to s2
+
+                    String s3 = "hello";   //a new string object is allcoted with value hello
+
+                    String s4 = s1 + " world";
+
+
+        StringBuffer (c)        
+        StringBuilder (c)       
+
+                whhena  string has to be manipulated heavily, we prefer loading them into
+                either StringBuffer or StringBuilder and do the neccessary manpulations
+                and once done we will collect back our final string.
+
+                StringBuffer is synchronized and thread safe
+                StringBuilder is not synchronized and is not thread asfe but peforms better.
+                            
         Throwable (i)
         Exception (c)
 
@@ -806,13 +822,33 @@ Java SE
         Thread (c)
 
     Exceptions
+    -----------------------------------------------------------------------------------------
+
     Threads
-    IO Streams
-    NIO Streams
-    Generics and Collections
-    Functional Interfaces, Method References and Lambda Expressions
-    Streams API
-    JDBC
-    Multi-Threading
-    Java 5 to 11 features.
+    -----------------------------------------------------------------------------------------
+
+    Date And Time API
+    -----------------------------------------------------------------------------------------
+        java.time
+
+       Generics and Collections
+    -------------------------------------------------------------------------------------------
+        jva.util
+
+    Functional Interfaces, Method References and Lambda Expressions and Streams API
+    ---------------------------------------------------------------------------------------------
+        java.util.function
+        java.util.stream
+
+    IO Streams & NIO Streams
+    ------------------------------------------------------------------------------------------
+        java.io
+        java.nio
+ 
+    JDBC                    (MySQl 8.0)
+    ---------------------------------------------------------------------------------------------
+        java.sql
+
     JUnit and Mockito
+    ---------------------------------------------------------------------------------------------
+   

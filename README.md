@@ -821,8 +821,80 @@ Java SE
         Runnable (i)
         Thread (c)
 
+    Scanner
+    ----------------------------------------------------------------------------------------
+            
+            java.util.Scanner
+                Scanner(InputStream)        the inputstrema is from where the data has to be scanned
+                                                it can be a file input stream
+                                                it can be a input stream form keyboard  (System.in)
+                                                it can be a input strema from a network socket ...etc
+                next()      to accept a string
+                nextInt()   to accept an int
+                nextDouble()
+                nextFloat()
+                nextBoolean() ...etc
+
     Exceptions
     -----------------------------------------------------------------------------------------
+
+        is an object that summarizes an abornmal situation that occured in the normal
+        course of application execution.
+
+                java.lang.Throwable (i)
+                            ↑
+                        -------------------------
+                        ↑                       ↑
+                        Error (c)               Exception (c)           ← Checked Exception
+                                                    ↑
+                                                RuntimeException (c)    ← UnChecked Exception
+
+                java.lang.Exception
+                                String getMessage()
+                                void printStackTrace()
+                                String[] getStackTrace()
+
+                Can avoid an unchecked exceptions from occuring using defensive programming
+                due to this a compiler will not stop you even if the unchekced exception is not handled
+
+                Can not avoid checked excpetion from occuring hence has to handled
+                due to this a compiler WILL STOP you if the chekced exception is not handled
+
+                Handling Checked Exception
+                ---------------------------------------------------
+
+                    try{
+                        
+                        //statement that may throw Checked Exception
+
+                    }catch(ExceptionType1 exceptionObj){
+                        //alternate code or error message display statment
+                    }catch(ExceptionType2 exceptionObj){
+                        //alternate code or error message display statment
+                    }catch(ExceptionType3 exceptionObj){
+                        //alternate code or error message display statment
+                    }catch(ExceptionType4 exceptionObj){
+                        //alternate code or error message display statment
+                    }finally{
+                        //piece of code that has to execute at any cost irrespective of an expection occuring or not
+                    }
+
+                User Defined Exception
+                -------------------------------------------------------
+
+                    //declare a user defiend exception
+                    class UserDefiendException extends Exception{
+                        public UserDefiendException(String message){
+                            super(message);
+                        }
+                    }
+
+
+                    //rasie a user defiend excepiton
+                    throw new UserDefiendException("something went wrong");
+
+                    //transfer (propagating) a yser defiend exception to the caller method 
+                    throws UserDefinedException
 
     Threads
     -----------------------------------------------------------------------------------------
@@ -831,7 +903,7 @@ Java SE
     -----------------------------------------------------------------------------------------
         java.time
 
-       Generics and Collections
+    Generics and Collections
     -------------------------------------------------------------------------------------------
         jva.util
 

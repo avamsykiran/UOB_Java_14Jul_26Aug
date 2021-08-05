@@ -46,9 +46,7 @@ public class App02CheckedExcepitonDemo {
 				try {
 					bankingService.withdraw(acc, amount);
 					System.out.println("Withdrawn Successfully");
-				} catch (InvalidWithdrawAmountException e) {
-					System.out.println(e.getMessage());
-				} catch (InsufficientBalanceExcepton e) {
+				} catch (InvalidWithdrawAmountException | InsufficientBalanceExcepton e) {
 					System.out.println(e.getMessage());
 				}
 				break;

@@ -896,21 +896,100 @@ Java SE
                     //transfer (propagating) a yser defiend exception to the caller method 
                     throws UserDefinedException
 
-    Threads
-    -----------------------------------------------------------------------------------------
 
+                Multi-Catch Block
+                ----------------------------------------------------------------------
+
+                    try{
+                        
+                        //statement that may throw Checked Exception
+
+                    }catch(ExceptionType1 | ExceptionType2 | ExceptionType3 | ExceptionType4 exceptionObj){
+                        //alternate code or error message display statment
+                    }finally{
+                        //piece of code that has to execute at any cost irrespective of an expection occuring or not
+                    }
+
+                Try-with-resources
+                -----------------------------------------------------------------------
+
+                    FileInputStream fin = null;
+                    
+                    try{
+                        fin =new FileInputStream("someFile.txt");
+                        .............
+                        
+                    }catch(IOException exp){
+                        /*error handling code..*/
+                    }finally{
+                        fin.close();
+                    }
+                    ======================================================    
+
+                    try(FileInputStream fin=new FileInputStream("someFile.txt")){
+                        ..................
+                    }catch(IOException exp){
+                        /*error handling code..*/
+                    }
+    
     Date And Time API
     -----------------------------------------------------------------------------------------
         java.time
 
-    Generics and Collections
-    -------------------------------------------------------------------------------------------
-        jva.util
+            LocalDate
+            LocalTime
+            LocalDateTime
+                                .now()                                  //static 
+                                .of(year,month,date,hour,min,sec)       //static
 
+            ZonedDateTime
+
+            Period
+            Duration
+
+        java.time.formatter.DateTimeFormatter
+
+            d,dd                day
+            M,MM,MMM,MMMM       month
+            yy,yyyy             year
+            h,hh,H,HH           hour
+            mm                  minute
+            ss                  sec
+            a                   am/pm
+
+
+            Java Application that accepts
+                principal amount disbursed
+                rate of interest
+                date of disbursment
+                No.Of.Terms (each year is a term)
+             and compute and print
+                simple interest     (si=(p*t*r)/100.0)
+                total amount to be paid
+                date of final payment
+
+    Generics
+    -------------------------------------------------------------------------------------------
+
+            is a arbitory type holder to create ADT (Abstract Data Types).
+
+            allows us to iamge a data type while implementing a method 
+            and that type can be realized while calling that method.
+
+            Generics Do Not Support Primitive Data Types, Use Wrpper Classes Instead.
+
+    Collections
+    -------------------------------------------------------------------------------------------
+        java.util
+    
     Functional Interfaces, Method References and Lambda Expressions and Streams API
     ---------------------------------------------------------------------------------------------
         java.util.function
         java.util.stream
+
+
+    Threads
+    -----------------------------------------------------------------------------------------   
 
     IO Streams & NIO Streams
     ------------------------------------------------------------------------------------------

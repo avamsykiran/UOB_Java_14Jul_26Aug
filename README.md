@@ -969,7 +969,7 @@ Java SE
                 date of final payment
 
     Generics
-    -------------------------------------------------------------------------------------------
+    ↑-------------------------------------------------------------------------------------------
 
             is a arbitory type holder to create ADT (Abstract Data Types).
 
@@ -978,10 +978,53 @@ Java SE
 
             Generics Do Not Support Primitive Data Types, Use Wrpper Classes Instead.
 
-    Collections
+    Collections         (Java approach to data structures)
     -------------------------------------------------------------------------------------------
-        java.util
-    
+
+                   ---------------------DECLARATION BLOCK---------------------------------------- 
+                    java.util.Collection (i)                        java.util.Map (i)
+                                add                                         put(key,value)
+                                isEmpty                                     get(key)
+                                remove                                      keySet()
+                                size                                        set(key,value)
+                                iterator
+                                                                                ↑
+                            ↑                                          java.util.SortedMap     (i)
+                    --------------------------
+                    ↑                        ↑
+                java.util.Set (i)     java.util.List (i)        
+                    ↑                       get(index),
+                java.util.SortedSet (i)     first(),
+                                            last(),
+                                            removeAt(index)...etc
+
+                Does not support index      Supports Index
+                Does not allow duplicates   Allows Duplicates
+                Not more than one null      Any number of nulls
+
+            ---------------------IMPLEMENTATIONS BLOCK----------------------------------------
+
+            Set implementations
+                    HashSet                 the order of element retrival is unpridicatable
+                    LinkedHashSet           the order of element retrival is the entry order
+                    TreeSet                 the order of element retrival is sorted order
+
+            List Implementations
+                    Vector                  is a growable array and is synchronized/thread-safe
+                    ArrayList               is a growable array and is not synchronized/thread-safe
+                    LinkedList              is a doubly linked list implementation
+
+            Map implementations
+                    HashMap                 the order of element retrival is unpridicatable
+                    TreeMap                 the order of element retrival is the entry order on keys
+                    LinkedHashMap           the order of element retrival is sorted order on keys
+
+            ---------------------ALGORTHEMIC BLOCK----------------------------------------
+
+                java.util.Collections
+                java.util.Comparator (i)        additional comparision strategy
+                java.lang.Comparable (i)        default comparision strategy
+
     Functional Interfaces, Method References and Lambda Expressions and Streams API
     ---------------------------------------------------------------------------------------------
         java.util.function

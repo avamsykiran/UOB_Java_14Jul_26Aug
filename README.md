@@ -1027,18 +1027,63 @@ Java SE
 
     Functional Interfaces, Method References and Lambda Expressions and Streams API
     ---------------------------------------------------------------------------------------------
+
+        an interface that has exactly one abstract method is called a functional interface
+
+        @FuntionalInterface to ensure that an interface remains as functional interface.
+
+        the functional interface can be implemented using lambda expressions
+
+                    () -> returnValue
+
+                    () -> {
+                        ..................
+                        return value
+                    }
+
         java.util.function
-        java.util.stream
+
+    Stream API - java.util.stream
+    -----------------------------------------------------------------------------------------
+
+        stream is a flow of data.
+
+        WaterFall
+                Filter of Dirt
+                    Electric Filn to heat
+                        Collect it into a container
+
+        Stream s1 =    Stream.of(array)
+        Stream s2 =   Arrays.stream(array);
+        Stream s3 = list.stream();
+        Stream s4 = set.stream();
+        
+
+        Memeber Function of Stream Class
+
+            forEach         accept a consumer, execute the consuemr on each and every ele of the stream.
+            reduce          accept a BinaryOperator, and return a java.util.Optional<Element>
+            collect
+
+            map
+            filter
+            flatMap
 
 
-    Threads
-    -----------------------------------------------------------------------------------------   
+            BinaryOperator<Integer> sum = (n1,n2)->n1+n2
+            Stream.of(int[]{1,2,3,4,5}).reduce(sum)
+
+                    sum(sum(sum(sum(1,2),3),4),5)   --------------->  15
+
 
     IO Streams & NIO Streams
     ------------------------------------------------------------------------------------------
         java.io
         java.nio
  
+    Threads
+    -----------------------------------------------------------------------------------------   
+
     JDBC                    (MySQl 8.0)
     ---------------------------------------------------------------------------------------------
         java.sql

@@ -1,23 +1,15 @@
-package com.cts.dtud.ui;
+package com.cts.lsd.ui;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
-import com.cts.dtud.model.Employee;
-import com.cts.dtud.service.EmployeeNameComparator;
-import com.cts.dtud.service.Swapper;
+import com.cts.lsd.model.Employee;
 
-public class App06WorkingWithList {
+public class App02CompartorWithLambdas {
 
 	public static void main(String[] args) {
 
@@ -40,7 +32,22 @@ public class App06WorkingWithList {
 		}
 
 		System.out.println("------------------------------------");
-		Collections.sort(emps, new EmployeeNameComparator());
+		Comparator<Employee> empNameComparator = (e1,e2) -> e1.getEname().compareTo(e2.getEname());
+		Collections.sort(emps,empNameComparator);
+		for (Employee e : emps) {
+			System.out.println(e);
+		}
+
+		System.out.println("------------------------------------");
+		Comparator<Employee> empJoinDateComparator = 
+				(e1,e2) -> e1.getDateOfJoining().compareTo(e2.getDateOfJoining());
+		Collections.sort(emps,empJoinDateComparator);
+		for (Employee e : emps) {
+			System.out.println(e);
+		}
+
+		System.out.println("------------------------------------");
+		Collections.sort(emps,(e1,e2)->e1.getSalary().compareTo(e2.getSalary()));
 		for (Employee e : emps) {
 			System.out.println(e);
 		}

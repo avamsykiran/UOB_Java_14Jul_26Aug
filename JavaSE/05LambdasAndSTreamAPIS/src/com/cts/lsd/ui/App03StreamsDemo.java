@@ -1,23 +1,14 @@
-package com.cts.dtud.ui;
+package com.cts.lsd.ui;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Optional;
 
-import com.cts.dtud.model.Employee;
-import com.cts.dtud.service.EmployeeNameComparator;
-import com.cts.dtud.service.Swapper;
+import com.cts.lsd.model.Employee;
 
-public class App06WorkingWithList {
+public class App03StreamsDemo {
 
 	public static void main(String[] args) {
 
@@ -34,17 +25,24 @@ public class App06WorkingWithList {
 		emps.add(new Employee(113L, "Darwin", 99670.0, LocalDate.of(2000, Month.OCTOBER, 1)));
 		emps.add(new Employee(107L, "Vamsy", 12670.0, LocalDate.of(2001, Month.JANUARY, 1)));
 
-		Collections.sort(emps);
-		for (Employee e : emps) {
-			System.out.println(e);
-		}
-
-		System.out.println("------------------------------------");
-		Collections.sort(emps, new EmployeeNameComparator());
-		for (Employee e : emps) {
-			System.out.println(e);
-		}
-
+		emps.stream().forEach(e -> System.out.println(e));
+		emps.stream().forEach(e -> e.setSalary(e.getSalary()+(e.getSalary()*0.05)));
+		System.out.println("--------------------------------------------");
+		emps.stream().forEach(System.out::println);
+		
+		System.out.println("--------------------------------------------");
+		Optional<Employee> result = emps.stream()
+				.reduce((e1,e2) -> e1.getSalary()>e2.getSalary()?e1:e2);
+		if(result.isPresent())
+			System.out.println(result.get());
+		
+		System.out.println("--------------------------------------------");
+		 result = emps.stream()
+				.reduce((e1,e2) -> e1.getDateOfJoining().isBefore(e2.getDateOfJoining())?e1:e2);
+		if(result.isPresent())
+			System.out.println(result.get());
+		
+		
 	}
 
 }

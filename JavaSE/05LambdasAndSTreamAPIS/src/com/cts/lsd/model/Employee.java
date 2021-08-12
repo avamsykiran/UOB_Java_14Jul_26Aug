@@ -1,6 +1,7 @@
 package com.cts.lsd.model;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Employee implements Comparable<Employee>{
 
@@ -8,6 +9,7 @@ public class Employee implements Comparable<Employee>{
 	private String ename;
 	private Double salary;
 	private LocalDate dateOfJoining;
+	private Set<String> skills;
 	
 	public Employee() {}
 
@@ -17,6 +19,16 @@ public class Employee implements Comparable<Employee>{
 		this.ename = ename;
 		this.salary = salary;
 		this.dateOfJoining = dateOfJoining;
+		this.skills=null;
+	}
+	
+	public Employee(Long empId, String ename, Double salary, LocalDate dateOfJoining, Set<String> skills) {
+		super();
+		this.empId = empId;
+		this.ename = ename;
+		this.salary = salary;
+		this.dateOfJoining = dateOfJoining;
+		this.skills = skills;
 	}
 
 	public Long getEmpId() {
@@ -49,6 +61,14 @@ public class Employee implements Comparable<Employee>{
 
 	public void setDateOfJoining(LocalDate dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
+	}
+
+	public Set<String> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(Set<String> skills) {
+		this.skills = skills;
 	}
 
 	@Override

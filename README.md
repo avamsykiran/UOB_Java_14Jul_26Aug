@@ -1060,26 +1060,59 @@ Java SE
         
 
         Memeber Function of Stream Class
-
+          Terminal Stream Operations  
             forEach         accept a consumer, execute the consuemr on each and every ele of the stream.
             reduce          accept a BinaryOperator, and return a java.util.Optional<Element>
-            collect
+            collect         used to collect the elements from a stream into a set/list/map
+          Intermnediate Stream Operations
+            filter          accept a predicate, return a new stream of all eles that satisfy the predicate
+            map             accepts a transformer and gives a new stream of transformed values of all the ele in 
+                            the source stream
+            flatMap         is used to flatten two or more streams into a single stream
 
-            map
-            filter
-            flatMap
-
+                {
+                    {1,2,3,4,5},
+                    {10,20,30,40,50},
+                    {44,55,66,77,88}
+                } --------------------> {1,2,3,4,5,10,20,30,40,50,44,55,66,77,88}
 
             BinaryOperator<Integer> sum = (n1,n2)->n1+n2
             Stream.of(int[]{1,2,3,4,5}).reduce(sum)
-
                     sum(sum(sum(sum(1,2),3),4),5)   --------------->  15
-
+            Stream.of(int[]{1,2,3,4,5}).map(x->x*x) ---------------> a new stream of 1,4,9,16,25
 
     IO Streams & NIO Streams
     ------------------------------------------------------------------------------------------
-        java.io
-        java.nio
+        java.io         input and output streams
+
+                Binary Streams          can read or write data only as bytes.
+
+                    File on HDD --> FileInputStream ------> bytes ------> Program ----> convert bytes to strings
+
+                    InputStream (ac)                    OutputStream  (ac)  
+                       |                                    |
+                    -------------                       ----------------------------------------------------
+                    |   |       |                       |    |                    |                         |
+                    |   |       ObjectInputStream       |   DataOutputStream     ObjectOutputStream FileOutputStream
+                    |   DataInputStream                 PrintStream
+                    |
+                    FileInputStream
+
+                Character Streams       can read or write data as strings
+
+                    File on HDD --> FileInputStream ------> bytes ------> 
+                                    InputStreamReader -----------> convert it into strings
+                                    BufferedReader  -----------> hold that in a buffer memory --->  Program 
+
+                    Reader (ac)                 Writer (ac)
+                        |                           |
+                    --------------              --------------    
+                    |       |    |              |            |
+                    |       |    FileReader   PrintWriter    FileWriter
+                    |       BufferedReader
+                    InputStreamReader
+
+        java.nio        non-blocking input output streams
  
     Threads
     -----------------------------------------------------------------------------------------   

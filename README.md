@@ -1114,6 +1114,32 @@ Java SE
 
         java.nio        non-blocking input output streams
  
+    Multi-Layer Archetecture
+    -----------------------------------------------------------------------------------------   
+
+        DAO     <----DTO/MODEL----->     SERVICE     <----DTO/MODEL---->  UI
+
+        DAO      Data Access Object     read or write records from a database/file/any other persistance provider
+        SERVICE                         Offer bussiness logic (computations/validations...etc)
+        UI       User Interface         All input and output from the keyboard and the screen
+
+        DTO     Data Transfer Object    to hold data and get propagated from one layer to another
+
+        User defiend excpetions are used to propagate any exceptions occuring in
+        the subsequent layers to the UI.
+
+        Each of the DAO or Service layers are made up of an interface and an implementation
+        the interface acts as an abstraction between the two layers (dao and service or service and ui).
+    
+    Mini Case Study
+    -------------------------------------------------------------------------------------------
+    Budget Tracking Applcation
+        1. A user msut be able to add a trasanction with details like
+            amount,date of transaction,type of transaction(CREDIT/DEBIT)
+        2. A user must be able delte a transaction
+        3. A user must be able to retirve all the transactions.
+        4. The applciation must display the totalDebit,totalCredit and bal everytiem the transactions are listed.
+
     Threads
     -----------------------------------------------------------------------------------------   
 

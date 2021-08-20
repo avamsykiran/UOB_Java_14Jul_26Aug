@@ -1140,13 +1140,152 @@ Java SE
         3. A user must be able to retirve all the transactions.
         4. The applciation must display the totalDebit,totalCredit and bal everytiem the transactions are listed.
 
-    Threads
-    -----------------------------------------------------------------------------------------   
-
     JDBC                    (MySQl 8.0)
     ---------------------------------------------------------------------------------------------
         java.sql
+   
+            Java Database Connectivity
+
+            RDBMS   <-----> db-driver <-------> JDBC <------> DAO <---> Service <----> UI <---> End_User
+
+
+            db-driver       implementations of JDBC specificaton
+
+            MySQL           ConnectorJ Driver
+            Ms SQL Server   Microsoft Jet Driver
+            Oracle          Oravle Thin Driver
+
+            JDBC is a set of interfaces in java.sql
+
+                Step1:      Load the respective dirver
+
+                                java.lang.Class.forName("com.mysql.cj.jdbc.Driver");
+                                (or)
+                                java.sql.DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+
+                            JDBC4.0 this step is automated.
+                            As and when the driver jar file is foudn in the classpath of the application,
+                            it is laoded, no exclsuive laoding is needed.
+
+                Step2:      Establish a connection
+
+
+                            Connection con = DriverMAnager.getConnection(dbUrl,uid,pwd);
+
+                            dbUrl:  jdbc:mysql://localhost:3306/databasName
+                                    jdbc:oracle:thin:@localhost:1521:databaseName
+
+
+                Step3:
+
+                        Execute DDL/DML/DRL
+
+                            Statement st = con.createStatement();
+
+                            int affectedRecordsCount = st.executeUpdate(dmlQueries)
+                            ResultSet rs = st.executeQuery(selectQueries)
+                            boolean isDone = st.execute(ddlQueries)
+
+                            PreparedStatement pst = con.prepareStatement(qry); //supports paramtrized queries.
+
+                            int affectedRecordsCount = pst.executeUpdate()
+                            ResultSet rs = pst.executeQuery()
+                            boolean isDone = pst.execute()
+
+                        Call a procedure or a function
+
+                            CallableStatement cst = con.prepareCall("func or procudeure call");
+
+
+        Assignment:
+
+            Multi - layered console applciation to performe CRUD operations on
+            an Employee entity: 
+                empId           Long,
+                empName         String,
+                salary          Double,
+                joinDate        LocalDate,
+                designation     ENUM (ASSOCIATE,JUNIOR_ASSOCIATE,SENIOR_ASSOCIATE,MANAGER)
+
+    Threads
+    --------------------------------------------------------------------------------------------   
+
+        java.lang.Runnable      public void run()
+                    |
+                    |
+        java.lang.Thread
+
+                    Thread()
+                    Thread(Runnable)
+
+                    String getName()
+                    void setName(String)
+                    int getPriority()
+                    int setPriority(int)
+                    void start()
+                    void join()
+
+                    static Thread currentThread()
+                    static void sleep(long ms);
+
+                    Thread t = new Thread()
+                        |
+                        |
+                        t.start() 
+                        |
+                    |-->QUEUED/READY----CPU is idle and the other resources are avaialble---|
+                    |                                                                       |
+                 PAUSED <-------------------------------sleep()<--------------------- run() is executed..
+                                                                                            |
+                                                                                            | run() is complete
+                                                                                        Thred Terminates.
 
     JUnit and Mockito
-    ---------------------------------------------------------------------------------------------
+    ---------------------------------------------------------------------------------------------\
+    
+
+        Unit Testing        -       JUnit 5   - JUnit Jupiter
+
+            JUnit 5 supporta all enahcnements of JDK8.
+
+            JUnit 5 Jupiter API
+
+                            all the annotations and assertion methods need to write the test cases
+
+            JUnit 5 Test Engine
+
+                            execute the writeen test cases and provide the test result
+
+            JUnit 5 Runner or Platform
+
+                            collect the test resutls and report them on a IDE UI/html report/...etc 
+
+        Assertion
+        ------------------------
+
+            an assertion is a mewthod that comapres the actual test output with the 
+            expect test output and decides if the tet case is passed or failed.
+
+            Assertions.(static assertion methods)
+
+                assertEquals
+                assertTrue
+                assertFalse
+                assertThrows
+                assertSame
+                ....etc
+
+        Annotations
+        -------------------------
+
+            @Test                   placed on a method that represents a test case
+            @Ignore                 placed along with @Test , to skip that test case from running
+            @Before
+            @After
+            @BeforeClass
+            @AfterClass
+
+            @Parametrized           creating aprametrized test cases.
+            @Tag
+            ...etc.,
    

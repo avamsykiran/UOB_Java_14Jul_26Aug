@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cts.bta.dao.FileBasedTransactionDaoImpl;
+import com.cts.bta.dao.JdbcBasedTransactionDaoImpl;
 import com.cts.bta.dao.TransactionDao;
 import com.cts.bta.exception.BTAException;
 import com.cts.bta.model.Transaction;
@@ -15,7 +16,8 @@ public class TransactionServiceImpl implements TransactionService {
 	private TransactionDao txnDao;
 	
 	public TransactionServiceImpl() throws BTAException {
-		this.txnDao=new FileBasedTransactionDaoImpl();
+		//this.txnDao=new FileBasedTransactionDaoImpl();
+		this.txnDao=new JdbcBasedTransactionDaoImpl();
 	}
 
 	@Override

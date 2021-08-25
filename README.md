@@ -1148,7 +1148,6 @@ Java SE
 
             RDBMS   <-----> db-driver <-------> JDBC <------> DAO <---> Service <----> UI <---> End_User
 
-
             db-driver       implementations of JDBC specificaton
 
             MySQL           ConnectorJ Driver
@@ -1241,9 +1240,7 @@ Java SE
                                                                                         Thred Terminates.
 
     JUnit and Mockito
-    ---------------------------------------------------------------------------------------------\
-    
-
+    ---------------------------------------------------------------------------------------------
         Unit Testing        -       JUnit 5   - JUnit Jupiter
 
             JUnit 5 supporta all enahcnements of JDK8.
@@ -1289,3 +1286,26 @@ Java SE
             @Tag
             ...etc.,
    
+        pom configs
+        ---------------------------------
+
+          <dependencies>
+           <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter</artifactId>
+              <version>5.6.0</version>
+              <scope>test</scope>
+           </dependency>
+         </dependencies>
+
+         <build>
+          <plugins>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <version>3.0.0-M4</version>
+              </plugin>
+          </plugins>
+      </build>
+     
+    
